@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="23dp"
+    android:paddingRight="23dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/card_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="50dp"
+        android:padding="5dp"
+        android:textSize="16sp"
+        android:hint="请输入车牌号"
+        android:background="@drawable/login_edit_selector"/>
+
+    <TextView
+        android:id="@+id/add_card_btn"
+        android:layout_width="315.3dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="49.3dp"
+        android:gravity="center"
+        android:text="添加车牌"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:background="@drawable/button_bg"/>
+
+
+</LinearLayout>

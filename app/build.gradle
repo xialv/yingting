@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.yitingche.demo"
+        minSdkVersion 17
+        targetSdkVersion 17
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', exclude: 'org.apache.http.legacy.jar', include: ['*.jar'])
+    compile files('libs/locSDK_6.13.jar')
+    compile files('libs/BaiduNaviSDK_3.0.0.jar')
+    compile files('libs/lite-http-2.3.1.jar')
+    compile files('libs/org.apache.http.legacy.jar')
+    compile files('libs/android-support-v13.jar')
+    compile files('libs/mslib.jar')
+    compile files('libs/gson-2.4.jar')
+    compile files('libs/EventBus.jar')
+}

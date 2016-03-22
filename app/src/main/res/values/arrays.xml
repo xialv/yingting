@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array translatable="false" name="planets_array">
+        <item>余额</item>
+        <item>交易明细</item>
+        <item>我的车牌</item>
+        <item>检查更新</item>
+    </string-array>
+</resources>

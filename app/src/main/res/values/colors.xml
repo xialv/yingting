@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="black_overlay">#66000000</color>
+
+    <color name="blue_button">#ff0099cc</color>
+
+    <color name="press_button_color">#19000000</color>
+
+    <color name="actionbar_bg_color">#ECECEC</color>
+
+    <color name="text_color_grey">#9b9b9b</color>
+
+    <color name="list_click_color">#eeeeee</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="tab_indicator_color">#22ACF4</color>
+
+    <color name="listview_bg_color">#f1f1f2</color>
+</resources>
+
