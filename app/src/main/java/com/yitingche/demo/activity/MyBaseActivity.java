@@ -56,6 +56,11 @@ public class MyBaseActivity extends Activity{
         textView.setText(str);
     }
 
+    protected void hideDividerLine(){
+        View divider =  getActionBar().getCustomView().findViewById(R.id.actionbar_divider);
+        divider.setVisibility(View.GONE);
+    }
+
     protected void onCustomBuckPress() {
         finish();
     }

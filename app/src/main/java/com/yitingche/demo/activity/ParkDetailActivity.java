@@ -85,7 +85,7 @@ public class ParkDetailActivity extends MyBaseActivity{
                 Intent intents = new Intent();
                 intents.putExtra(PARK_LNG, mParkLng);
                 intents.putExtra(PARK_LAT, mParkLat);
-//                setResult(4, intents);
+                setResult(4, intents);
                 finish();
             }
         });

@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/edit_text_bg"
     android:orientation="horizontal"
+    android:focusable="true"
     android:descendantFocusability="beforeDescendants">
         <ImageView
             android:id="@+id/search_icon"
@@ -19,7 +20,11 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/search_icon"
+            android:duplicateParentState="true"
             android:layout_marginLeft="10dp"
+            android:hint="搜索地点"
+            android:textColorHint="#9b9b9b"
+            android:textSize="16sp"
             android:background="@null"/>
     <ImageView
         android:id="@+id/clear_btn"

@@ -33,14 +33,11 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.CityInfo;
-import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiDetailResult;
-import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
@@ -61,7 +58,6 @@ import com.yitingche.demo.controller.ParkResponse;
 import com.yitingche.demo.event.LoginEvent;
 import com.yitingche.demo.event.ParkEvent;
 import com.yitingche.demo.map.MapGuideActivity;
-import com.yitingche.demo.map.PoiOverlay;
 import com.yitingche.demo.map.PoiOverlayNew;
 import com.yitingche.demo.view.ClearEditText;
 import com.yitingche.demo.view.MenuLoginView;
@@ -224,13 +220,11 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
         mDrawerList.setAdapter(mDrawerAdapter);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-
-
         mDrawerToggle = new ActionBarDrawerToggle(this,
                 mDrawerLayout, R.drawable.icon_menu, R.string.open_menu, R.string.close_menu);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        mMenuLoginView.showLogin(LoginManager.getInstance().isLogined(this));
+        mMenuLoginView.showLogin(LoginManager.getInstance().isLogined(this), LoginManager.getInstance().getAccount());
         showLogoutBtn(LoginManager.getInstance().isLogined(this));
     }
 
@@ -278,7 +272,7 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
 
     public void onEventMainThread(LoginEvent event){
         if (event != null){
-            mMenuLoginView.showLogin(event.loginSuccess);
+            mMenuLoginView.showLogin(event.loginSuccess, event.account);
             showLogoutBtn(event.loginSuccess);
         }
     }
@@ -679,20 +673,27 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
         if (position > 0 && position <= mDrawerAdapter.getCount()){
             int type = mDrawerAdapter.getItem(position - 1).operatorType;
             Intent intent = null;
-            switch (type){
-                case MenuInfo.TYPE_CARD:
-                    intent = new Intent(this, CardActivity.class);
-                    break;
-                case MenuInfo.TYPE_DEAL:
-                    intent = new Intent(this, DealActivity.class);
-                    break;
-                case MenuInfo.TYPE_RECHARGE:
-                    intent = new Intent(this, RechargeActivity.class);
-                    break;
+            boolean needLogin = false;
+            if (type == MenuInfo.TYPE_CARD || type == MenuInfo.TYPE_DEAL || type == MenuInfo.TYPE_RECHARGE){
+                needLogin = true;
             }
-            if(intent != null)
-            startActivity(intent);
-
+            if (!needLogin || LoginManager.getInstance().isLogined(this)) {
+                switch (type) {
+                    case MenuInfo.TYPE_CARD:
+                        intent = new Intent(this, CardActivity.class);
+                        break;
+                    case MenuInfo.TYPE_DEAL:
+                        intent = new Intent(this, DealActivity.class);
+                        break;
+                    case MenuInfo.TYPE_RECHARGE:
+                        intent = new Intent(this, RechargeActivity.class);
+                        break;
+                }
+                if (intent != null)
+                    startActivity(intent);
+            } else {
+                LoginManager.getInstance().gotoLoginActivity(this);
+            }
         }
     }
 

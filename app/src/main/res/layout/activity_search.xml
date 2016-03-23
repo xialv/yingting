@@ -3,13 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/actionbar_bg_color">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15.3dp"
-        android:layout_marginRight="15.3dp">
+        android:layout_marginRight="15.3dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/actionbar_bg_color">
         <ImageView
             android:id="@+id/back_icon"
             android:layout_width="wrap_content"
@@ -19,14 +22,18 @@
             android:id="@+id/search_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:hint="搜索地点"/>
+            android:layout_margin="10dp"/>
         </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/divider_line"/>
 
     <ListView
         android:id="@+id/asso_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="@drawable/divider_line"
         android:background="@color/listview_bg_color"/>
 
 </LinearLayout>

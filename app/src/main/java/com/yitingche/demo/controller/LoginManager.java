@@ -57,6 +57,13 @@ public class LoginManager {
         return 0L;
     }
 
+    public String getAccount(){
+        if (mLogined) {
+            return mAccount;
+        }
+        return "";
+    }
+
     public synchronized void setLoginState(Context context, long userId, String account){
         mLogined = userId > 0;
         mUserId = userId;

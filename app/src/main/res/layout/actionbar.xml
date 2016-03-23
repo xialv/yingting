@@ -12,7 +12,6 @@
         android:src="@drawable/xml_selector_button_back"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dip"
-
         android:focusableInTouchMode="false"
         android:focusable="false"
         android:clickable="true"
@@ -27,7 +26,10 @@
         android:layout_centerInParent="true"
         />
     <ImageView
+        android:id="@+id/actionbar_divider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/divider_line"/>
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/divider_line"
+        />
 </RelativeLayout>
