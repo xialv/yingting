@@ -24,6 +24,7 @@ import com.yitingche.demo.request.AddCardRequest;
 import com.yitingche.demo.request.CardRequest;
 import com.yitingche.demo.request.ConsumeRequest;
 import com.yitingche.demo.request.LoginRequest;
+import com.yitingche.demo.request.ParkInfoRequest;
 import com.yitingche.demo.request.ParkRequest;
 import com.yitingche.demo.request.RechargeRequest;
 import com.yitingche.demo.request.RegisterRequest;
@@ -189,6 +190,12 @@ public class HttpRequestInterface {
         final ParkRequest request = new ParkRequest(lat, lng, max);
         InternetClient.getInstance(context).postRequest(request, callback);
     }
+
+    public static void getParkInfo(Context context, long parkid, InternetClient.NetworkCallback<String> callback){
+        final ParkInfoRequest request = new ParkInfoRequest(parkid);
+        InternetClient.getInstance(context).postRequest(request, callback);
+    }
+
 
     /**
      * 根据A和Z端Moc编码及类型获得关系类型.

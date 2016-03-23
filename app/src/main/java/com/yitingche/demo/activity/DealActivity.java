@@ -90,6 +90,7 @@ public class DealActivity extends MyBaseActivity{
             @Override
             public void onSuccess(RequestBase<String> stringRequestBase, String s) {
                 Gson gson = new Gson();
+                s = "\"ConsumeList\":" + s;
                 ConsumeResponse response = gson.fromJson(s, ConsumeResponse.class);
                 response = new ConsumeResponse();
                 List<ConsumeInfo> infos = new ArrayList<ConsumeInfo>();

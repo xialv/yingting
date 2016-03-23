@@ -7,6 +7,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.michael.corelib.internet.InternetClient;
 import com.michael.corelib.internet.core.NetworkResponse;
 import com.michael.corelib.internet.core.RequestBase;
@@ -20,6 +21,7 @@ import com.yitingche.demo.controller.LoginManager;
 import com.yitingche.demo.controller.SerResponse;
 import com.yitingche.demo.event.ResultEvent;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +77,9 @@ public class CardActivity extends MyBaseActivity implements View.OnClickListener
             public void onSuccess(RequestBase<String> stringRequestBase, String s) {
 //                CardResponse response = JsonUtils.parse(s, CardResponse.class);
                 Gson gson = new Gson();
-                CardResponse response = gson.fromJson(s, CardResponse.class);
+                Type listType = new TypeToken<List<CardNo>>(){}.getType();
+                CardResponse response = new CardResponse();
+                response.carNo = gson.fromJson(s, listType);
 //                //test
 //                response = new CardResponse();
 //                response.carNo = new ArrayList<CardNo>();

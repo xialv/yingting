@@ -155,6 +155,19 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                     }
                 }
             }
+
+            @Override
+            public void onDetailClick(Park park) {
+                Intent intent = new Intent(MainActivity.this, ParkDetailActivity.class);
+                intent.putExtra(ParkDetailActivity.PARK_ID, park.id);
+                intent.putExtra(ParkDetailActivity.PARK_NAME, park.name);
+                intent.putExtra(ParkDetailActivity.PARK_ADDRESS, park.addr);
+                intent.putExtra(ParkDetailActivity.PARK_SEAT, park.seatNum);
+                intent.putExtra(ParkDetailActivity.PARK_FREE_SEAT, park.freeSeatNum);
+                intent.putExtra(ParkDetailActivity.PARK_LNG, park.coordinateY);
+                intent.putExtra(ParkDetailActivity.PARK_LAT, park.coordinateX);
+                startActivityForResult(intent, 2222);
+            }
         });
 
 //        mTitle = mDrawerTitle = getTitle();
@@ -294,6 +307,8 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         mParkInfo.setVisibility(View.GONE);
+        Log.d("haha", "requestCode=" + requestCode + "  resultCode=" + resultCode + "data:" + data);
+
         if(requestCode == 1000){
             if(resultCode == 0){
                 if (data != null){
@@ -317,6 +332,22 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
 
                         nearbySearch(0, lat, lng);
                     }
+                }
+            }
+        } else if (requestCode == 2222 && data != null){
+            Double lat = data.getDoubleExtra(ParkDetailActivity.PARK_LAT, 0);
+            Double lng = data.getDoubleExtra(ParkDetailActivity.PARK_LNG, 0);
+            BNRoutePlanNode snode = new BNRoutePlanNode(mLocation.getLongitude(),
+                    mLocation.getLatitude(), mLocation.getBuildingName(), mLocation.getAddrStr(),
+                    BNRoutePlanNode.CoordinateType.GCJ02);
+            BNRoutePlanNode enode = new BNRoutePlanNode(lng, lat,
+                    "", "",
+                    BNRoutePlanNode.CoordinateType.GCJ02);
+            if (BaiduNaviManager.isNaviInited()) {
+                routeplanToNavi(BNRoutePlanNode.CoordinateType.GCJ02, snode, enode);
+            } else {
+                if (initDirs()) {
+                    initNavi(snode, enode);
                 }
             }
         }
@@ -541,24 +572,10 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
             } else {
                 mParkInfo.setVisibility(View.GONE);
             }
-            PoiInfo poi = getPoiInfo(index);
-            // if (poi.hasCaterDetails) {
-//            mPoiSearch.searchPoiDetail((new PoiDetailSearchOption())
-//                    .poiUid(poi.uid));
-            // }
-
-            mLocation.getLocType();
-            BNRoutePlanNode snode = new BNRoutePlanNode(mLocation.getLongitude(),
-                    mLocation.getLatitude(), mLocation.getBuildingName(), mLocation.getAddrStr(),
-                    BNRoutePlanNode.CoordinateType.GCJ02);
-            BNRoutePlanNode enode = new BNRoutePlanNode(poi.location.longitude, poi.location.latitude,
-                    poi.name, poi.address,
-                    BNRoutePlanNode.CoordinateType.GCJ02);
             if (BaiduNaviManager.isNaviInited()) {
-                routeplanToNavi(BNRoutePlanNode.CoordinateType.GCJ02, snode, enode);
-            } else {
+
                 if (initDirs()) {
-                    initNavi(snode, enode);
+                    initNavi(null, null);
                 }
             }
             return true;

@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yitingche.demo.R;
+import com.yitingche.demo.activity.MainActivity;
 import com.yitingche.demo.activity.ParkDetailActivity;
 import com.yitingche.demo.controller.LoginManager;
 import com.yitingche.demo.controller.Park;
@@ -69,14 +70,9 @@ public class ParkInfoView extends LinearLayout {
         mParkDetailBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, ParkDetailActivity.class);
-                intent.putExtra("name", mParkInfo.name);
-                intent.putExtra("address", mParkInfo.addr);
-                intent.putExtra("seatnum", mParkInfo.seatNum);
-                intent.putExtra("freeseat", mParkInfo.freeSeatNum);
-                intent.putExtra("lng", mParkInfo.coordinateY);
-                intent.putExtra("lat", mParkInfo.coordinateX);
-                mContext.startActivity(intent);
+                if (mListener != null){
+                    mListener.onDetailClick(mParkInfo);
+                }
             }
         });
     }
@@ -87,5 +83,6 @@ public class ParkInfoView extends LinearLayout {
 
     public interface OnNaviClickListener{
         public void onNaviClick(Park park);
+        public void onDetailClick(Park park);
     }
 }
