@@ -2,7 +2,7 @@
 /local.properties
 /.idea/libraries
 .DS_Store
-.gradle/
 .idea/
 app/build/
 .idea/workspace.xml
+/.gradle/

@@ -9,16 +9,16 @@
 
     <TextView
         android:id="@+id/park_name"
-        android:layout_width="315.3dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="49.3dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="停车场name"
         android:textSize="16sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="空闲车位数:"
         android:textColor="@color/blue_button"
         android:textSize="16sp"/>
@@ -32,6 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="地点:"
         android:textColor="@color/blue_button"
         android:textSize="16sp"/>
@@ -44,6 +45,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="费用:"
         android:textColor="@color/blue_button"
         android:textSize="16sp"/>
@@ -56,6 +58,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="其他服务:"
         android:textColor="@color/blue_button"
         android:textSize="16sp"/>

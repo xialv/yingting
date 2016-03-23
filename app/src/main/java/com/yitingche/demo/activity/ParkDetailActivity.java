@@ -95,7 +95,7 @@ public class ParkDetailActivity extends MyBaseActivity{
     private void getIntentData(){
         Intent intent = getIntent();
         mParkId = intent.getLongExtra(PARK_ID, 0L);
-        mParkName = intent.getStringExtra(PARK_ADDRESS);
+        mParkName = intent.getStringExtra(PARK_NAME);
         mParkAddress = intent.getStringExtra(PARK_ADDRESS);
         mParkSeat = intent.getIntExtra(PARK_SEAT, 0);
         mParkFreeSeat = intent.getIntExtra(PARK_FREE_SEAT, 0);

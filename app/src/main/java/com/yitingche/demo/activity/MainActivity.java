@@ -401,10 +401,6 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                 return;
             }
 
-            if (location != null && !equalLocation(mLocation, location)){
-                getNearbyPark(location.getLatitude(), location.getLongitude(), 10);
-            }
-
             mLocation = location;
             MyLocationData locData = new MyLocationData.Builder()
                     .accuracy(location.getRadius())
@@ -420,6 +416,7 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                 builder.target(ll).zoom(18.0f);
                 mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
                 nearbySearch(0, location.getLatitude(), location.getLongitude());
+                getNearbyPark(location.getLatitude(), location.getLongitude(), 10);
 
             }
         }
