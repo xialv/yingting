@@ -462,25 +462,25 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                     authinfo = "key校验失败, " + msg;
                 }
                 Log.i("daohang", "authinfo=" + authinfo);
-                mhandler.postDelayed(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        Toast.makeText(MainActivity.this, authinfo, Toast.LENGTH_LONG).show();
-                    }
-                }, 300);
+//                mhandler.postDelayed(new Runnable() {
+//
+//                    @Override
+//                    public void run() {
+//                        Toast.makeText(MainActivity.this, authinfo, Toast.LENGTH_LONG).show();
+//                    }
+//                }, 300);
             }
 
             public void initSuccess() {
                 Log.i("daohang", "initSuccess=");
-                Toast.makeText(MainActivity.this, "百度导航引擎初始化成功", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "百度导航引擎初始化成功", Toast.LENGTH_SHORT).show();
                 if (snode != null && enode != null)
                 routeplanToNavi(BNRoutePlanNode.CoordinateType.GCJ02, snode, enode);
             }
 
             public void initStart() {
                 Log.i("daohang", "initstart=");
-                Toast.makeText(MainActivity.this, "百度导航引擎初始化开始", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "百度导航引擎初始化开始", Toast.LENGTH_SHORT).show();
             }
 
             public void initFailed() {

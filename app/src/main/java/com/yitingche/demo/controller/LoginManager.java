@@ -10,6 +10,7 @@ import com.michael.corelib.internet.core.RequestBase;
 import com.yitingche.demo.Utils.HttpRequestInterface;
 import com.yitingche.demo.Utils.SharePreferenceHelper;
 import com.yitingche.demo.activity.LoginActivity;
+import com.yitingche.demo.app.GlobalApplication;
 import com.yitingche.demo.event.LoginEvent;
 
 import java.io.IOException;
@@ -73,6 +74,7 @@ public class LoginManager {
 
     public void logout(){
         mLogined = false;
+        setLoginState(GlobalApplication.getGlobalContext(), 0, "");
         EventBus.getDefault().postSticky(new LoginEvent(false, "退出登录"));
     }
     public void gotoLoginActivity(Context context){

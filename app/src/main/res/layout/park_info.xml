@@ -21,6 +21,7 @@
                 android:id="@+id/park_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
                 android:text="***停车场"/>
             <TextView
                 android:id="@+id/park_site"
@@ -34,6 +35,7 @@
             android:id="@+id/park_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:text="地址"/>
         <ImageView
             android:layout_width="match_parent"
@@ -58,6 +60,6 @@
         android:gravity="center"
         android:text="导航"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:background="@drawable/navi_btn_bg"/>
 </RelativeLayout>
