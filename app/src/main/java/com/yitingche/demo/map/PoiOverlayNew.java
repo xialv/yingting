@@ -60,6 +60,29 @@ public class PoiOverlayNew extends OverlayManager {
     @Override
     public final List<OverlayOptions> getOverlayOptions() {
 
+        if(mPoiResult != null) {
+            if (mPoiResult == null || mPoiResult.getAllPoi() == null) {
+                return null;
+            }
+            List<OverlayOptions> markerList = new ArrayList<OverlayOptions>();
+            int markerSize = 0;
+            for (int i = 0; i < mPoiResult.getAllPoi().size()
+                    && markerSize < MAX_POI_SIZE; i++) {
+                if (mPoiResult.getAllPoi().get(i).location == null) {
+                    continue;
+                }
+                markerSize++;
+                Bundle bundle = new Bundle();
+                bundle.putInt("index", i);
+                markerList.add(new MarkerOptions()
+                        .icon(BitmapDescriptorFactory
+                                .fromResource(R.drawable.icon_park))
+                        .extraInfo(bundle)
+                        .position(mPoiResult.getAllPoi().get(i).location));
+
+            }
+            return markerList;
+        }
         if (mParkList == null || mParkList.size() == 0)
             return null;
 
@@ -92,20 +115,32 @@ public class PoiOverlayNew extends OverlayManager {
 
 
     public PoiInfo getPoiInfo(int position){
-        if (position >= 0 && position < mParkList.size()){
-            Park park = mParkList.get(position);
-            PoiInfo info = new PoiInfo();
-            info.location = new LatLng(park.coordinateX, park.coordinateY);
-            info.address = park.addr;
-            info.name = park.name;
-            return info;
-        }
-        return null;
+        return mPoiResult.getAllPoi().get(position);
+//        if (position >= 0 && position < mParkList.size()){
+//            Park park = mParkList.get(position);
+//            PoiInfo info = new PoiInfo();
+//            info.location = new LatLng(park.coordinateX, park.coordinateY);
+//            info.address = park.addr;
+//            info.name = park.name;
+//            return info;
+//        }
+//        return null;
     }
 
     public Park getParkInfo(int position){
         if (position >= 0 && position < mParkList.size()){
             return mParkList.get(position);
+        }
+        if (mPoiResult != null){
+            Park park = new Park();
+            PoiInfo info = getPoiInfo(position);
+            if (info != null) {
+                park.coordinateY = info.location.longitude;
+                park.coordinateX = info.location.latitude;
+                park.addr = info.address;
+                park.name = info.name;
+                return park;
+            }
         }
         return null;
     }

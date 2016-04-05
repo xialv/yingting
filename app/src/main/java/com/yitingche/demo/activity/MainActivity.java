@@ -33,14 +33,11 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.CityInfo;
-import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiDetailResult;
-import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
@@ -61,7 +58,6 @@ import com.yitingche.demo.controller.ParkResponse;
 import com.yitingche.demo.event.LoginEvent;
 import com.yitingche.demo.event.ParkEvent;
 import com.yitingche.demo.map.MapGuideActivity;
-import com.yitingche.demo.map.PoiOverlay;
 import com.yitingche.demo.map.PoiOverlayNew;
 import com.yitingche.demo.view.ClearEditText;
 import com.yitingche.demo.view.MenuLoginView;
@@ -155,6 +151,19 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                     }
                 }
             }
+
+            @Override
+            public void onDetailClick(Park park) {
+                Intent intent = new Intent(MainActivity.this, ParkDetailActivity.class);
+                intent.putExtra(ParkDetailActivity.PARK_ID, park.id);
+                intent.putExtra(ParkDetailActivity.PARK_NAME, park.name);
+                intent.putExtra(ParkDetailActivity.PARK_ADDRESS, park.addr);
+                intent.putExtra(ParkDetailActivity.PARK_SEAT, park.seatNum);
+                intent.putExtra(ParkDetailActivity.PARK_FREE_SEAT, park.freeSeatNum);
+                intent.putExtra(ParkDetailActivity.PARK_LNG, park.coordinateY);
+                intent.putExtra(ParkDetailActivity.PARK_LAT, park.coordinateX);
+                startActivityForResult(intent, 2222);
+            }
         });
 
 //        mTitle = mDrawerTitle = getTitle();
@@ -211,13 +220,11 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
         mDrawerList.setAdapter(mDrawerAdapter);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-
-
         mDrawerToggle = new ActionBarDrawerToggle(this,
                 mDrawerLayout, R.drawable.icon_menu, R.string.open_menu, R.string.close_menu);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        mMenuLoginView.showLogin(LoginManager.getInstance().isLogined(this));
+        mMenuLoginView.showLogin(LoginManager.getInstance().isLogined(this), LoginManager.getInstance().getAccount());
         showLogoutBtn(LoginManager.getInstance().isLogined(this));
     }
 
@@ -265,7 +272,7 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
 
     public void onEventMainThread(LoginEvent event){
         if (event != null){
-            mMenuLoginView.showLogin(event.loginSuccess);
+            mMenuLoginView.showLogin(event.loginSuccess, event.account);
             showLogoutBtn(event.loginSuccess);
         }
     }
@@ -294,6 +301,8 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         mParkInfo.setVisibility(View.GONE);
+        Log.d("haha", "requestCode=" + requestCode + "  resultCode=" + resultCode + "data:" + data);
+
         if(requestCode == 1000){
             if(resultCode == 0){
                 if (data != null){
@@ -317,6 +326,22 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
 
                         nearbySearch(0, lat, lng);
                     }
+                }
+            }
+        } else if (requestCode == 2222 && data != null){
+            Double lat = data.getDoubleExtra(ParkDetailActivity.PARK_LAT, 0);
+            Double lng = data.getDoubleExtra(ParkDetailActivity.PARK_LNG, 0);
+            BNRoutePlanNode snode = new BNRoutePlanNode(mLocation.getLongitude(),
+                    mLocation.getLatitude(), mLocation.getBuildingName(), mLocation.getAddrStr(),
+                    BNRoutePlanNode.CoordinateType.GCJ02);
+            BNRoutePlanNode enode = new BNRoutePlanNode(lng, lat,
+                    "", "",
+                    BNRoutePlanNode.CoordinateType.GCJ02);
+            if (BaiduNaviManager.isNaviInited()) {
+                routeplanToNavi(BNRoutePlanNode.CoordinateType.GCJ02, snode, enode);
+            } else {
+                if (initDirs()) {
+                    initNavi(snode, enode);
                 }
             }
         }
@@ -376,10 +401,6 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                 return;
             }
 
-            if (location != null && !equalLocation(mLocation, location)){
-                getNearbyPark(location.getLatitude(), location.getLongitude(), 10);
-            }
-
             mLocation = location;
             MyLocationData locData = new MyLocationData.Builder()
                     .accuracy(location.getRadius())
@@ -395,6 +416,7 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                 builder.target(ll).zoom(18.0f);
                 mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
                 nearbySearch(0, location.getLatitude(), location.getLongitude());
+                getNearbyPark(location.getLatitude(), location.getLongitude(), 10);
 
             }
         }
@@ -440,25 +462,25 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                     authinfo = "key校验失败, " + msg;
                 }
                 Log.i("daohang", "authinfo=" + authinfo);
-                mhandler.postDelayed(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        Toast.makeText(MainActivity.this, authinfo, Toast.LENGTH_LONG).show();
-                    }
-                }, 300);
+//                mhandler.postDelayed(new Runnable() {
+//
+//                    @Override
+//                    public void run() {
+//                        Toast.makeText(MainActivity.this, authinfo, Toast.LENGTH_LONG).show();
+//                    }
+//                }, 300);
             }
 
             public void initSuccess() {
                 Log.i("daohang", "initSuccess=");
-                Toast.makeText(MainActivity.this, "百度导航引擎初始化成功", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "百度导航引擎初始化成功", Toast.LENGTH_SHORT).show();
                 if (snode != null && enode != null)
                 routeplanToNavi(BNRoutePlanNode.CoordinateType.GCJ02, snode, enode);
             }
 
             public void initStart() {
                 Log.i("daohang", "initstart=");
-                Toast.makeText(MainActivity.this, "百度导航引擎初始化开始", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "百度导航引擎初始化开始", Toast.LENGTH_SHORT).show();
             }
 
             public void initFailed() {
@@ -541,24 +563,10 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
             } else {
                 mParkInfo.setVisibility(View.GONE);
             }
-            PoiInfo poi = getPoiInfo(index);
-            // if (poi.hasCaterDetails) {
-//            mPoiSearch.searchPoiDetail((new PoiDetailSearchOption())
-//                    .poiUid(poi.uid));
-            // }
-
-            mLocation.getLocType();
-            BNRoutePlanNode snode = new BNRoutePlanNode(mLocation.getLongitude(),
-                    mLocation.getLatitude(), mLocation.getBuildingName(), mLocation.getAddrStr(),
-                    BNRoutePlanNode.CoordinateType.GCJ02);
-            BNRoutePlanNode enode = new BNRoutePlanNode(poi.location.longitude, poi.location.latitude,
-                    poi.name, poi.address,
-                    BNRoutePlanNode.CoordinateType.GCJ02);
             if (BaiduNaviManager.isNaviInited()) {
-                routeplanToNavi(BNRoutePlanNode.CoordinateType.GCJ02, snode, enode);
-            } else {
+
                 if (initDirs()) {
-                    initNavi(snode, enode);
+                    initNavi(null, null);
                 }
             }
             return true;
@@ -662,20 +670,27 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
         if (position > 0 && position <= mDrawerAdapter.getCount()){
             int type = mDrawerAdapter.getItem(position - 1).operatorType;
             Intent intent = null;
-            switch (type){
-                case MenuInfo.TYPE_CARD:
-                    intent = new Intent(this, CardActivity.class);
-                    break;
-                case MenuInfo.TYPE_DEAL:
-                    intent = new Intent(this, DealActivity.class);
-                    break;
-                case MenuInfo.TYPE_RECHARGE:
-                    intent = new Intent(this, PayActivity.class);
-                    break;
+            boolean needLogin = false;
+            if (type == MenuInfo.TYPE_CARD || type == MenuInfo.TYPE_DEAL || type == MenuInfo.TYPE_RECHARGE){
+                needLogin = true;
             }
-            if(intent != null)
-            startActivity(intent);
-
+            if (!needLogin || LoginManager.getInstance().isLogined(this)) {
+                switch (type) {
+                    case MenuInfo.TYPE_CARD:
+                        intent = new Intent(this, CardActivity.class);
+                        break;
+                    case MenuInfo.TYPE_DEAL:
+                        intent = new Intent(this, DealActivity.class);
+                        break;
+                    case MenuInfo.TYPE_RECHARGE:
+                        intent = new Intent(this,  PayActivity.class);
+                        break;
+                }
+                if (intent != null)
+                    startActivity(intent);
+            } else {
+                LoginManager.getInstance().gotoLoginActivity(this);
+            }
         }
     }
 

@@ -19,6 +19,7 @@ import java.util.List;
 public class GlobalApplication extends Application{
     public LocationService locationService;
     public Vibrator mVibrator;
+    private Context mContext;
 
     private final String TAG = GlobalApplication.class.getSimpleName();
     private static GlobalApplication sInstance;
@@ -40,9 +41,14 @@ public class GlobalApplication extends Application{
         return backFinishList;
     }
 
+    public static Context getGlobalContext(){
+        return getInstance().mContext;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
         /***
          * 初始化定位sdk，建议在Application中创建
          */

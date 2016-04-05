@@ -2,30 +2,27 @@ package com.yitingche.demo.activity;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.michael.corelib.internet.InternetClient;
 import com.michael.corelib.internet.core.NetworkResponse;
 import com.michael.corelib.internet.core.RequestBase;
 import com.yitingche.demo.R;
 import com.yitingche.demo.Utils.HttpRequestInterface;
 import com.yitingche.demo.controller.ConsumeInfo;
-import com.yitingche.demo.controller.ConsumeResponse;
+import com.yitingche.demo.controller.ConsumeItem;
+import com.yitingche.demo.controller.DepositItem;
 import com.yitingche.demo.controller.LoginManager;
-import com.yitingche.demo.controller.RechargeResponse;
-import com.yitingche.demo.event.LoginEvent;
 import com.yitingche.demo.event.ResultEvent;
 import com.yitingche.demo.view.ConsumeAdapter;
 import com.yitingche.demo.view.PagerBaseAdapter;
 import com.yitingche.demo.view.SlidingTab;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,6 +79,7 @@ public class DealActivity extends MyBaseActivity{
         PagerBaseAdapter adapter = new PagerBaseAdapter(viewList);
         mPager.setAdapter(adapter);
         mTab.setViewPager(tabs, mPager);
+        hideDividerLine();
         setCustomActionBarTitle("消息记录");
     }
 
@@ -90,19 +88,32 @@ public class DealActivity extends MyBaseActivity{
             @Override
             public void onSuccess(RequestBase<String> stringRequestBase, String s) {
                 Gson gson = new Gson();
-                ConsumeResponse response = gson.fromJson(s, ConsumeResponse.class);
-                response = new ConsumeResponse();
-                List<ConsumeInfo> infos = new ArrayList<ConsumeInfo>();
-                ConsumeInfo item = new ConsumeInfo();
-                item.createTime = "15年12月3号";
-                item.money= "12";
-                item.parkId="三元桥停车场";
-                infos.add(item);
-                if (response != null) {
+                Type listType = new TypeToken<List<DepositItem>>(){}.getType();
+                List<ConsumeInfo> infos = gson.fromJson(s, listType);
+                if (infos != null && infos.size() > 0) {
                         EventBus.getDefault().post(new ResultEvent(1, infos, ResultEvent.FROM_RECHARGE));
                     } else {
                         EventBus.getDefault().post(new ResultEvent(0, null, ResultEvent.FROM_RECHARGE));
                     }
+            }
+
+            @Override
+            public void onFailed(RequestBase<String> stringRequestBase, NetworkResponse networkResponse) {
+                EventBus.getDefault().post(new ResultEvent());
+            }
+        });
+
+        HttpRequestInterface.getConsumeList(this, LoginManager.getInstance().getUserId(), new InternetClient.NetworkCallback<String>() {
+            @Override
+            public void onSuccess(RequestBase<String> stringRequestBase, String s) {
+                Gson gson = new Gson();
+                Type listType = new TypeToken<List<ConsumeItem>>() {}.getType();
+                List<ConsumeInfo> infos = gson.fromJson(s, listType);
+                if (infos != null && infos.size() > 0) {
+                    EventBus.getDefault().post(new ResultEvent(1, infos, ResultEvent.FROM_CONSUME));
+                } else {
+                    EventBus.getDefault().post(new ResultEvent(0, null, ResultEvent.FROM_CONSUME));
+                }
             }
 
             @Override
@@ -119,7 +130,7 @@ public class DealActivity extends MyBaseActivity{
                 if (event.from == ResultEvent.FROM_RECHARGE){
                     mRechargeAdapter.setData(infos);
                 } else {
-                    mConsumeAdapter.setData(null);
+                    mConsumeAdapter.setData(infos);
                 }
             } else {
                 if (event.from == ResultEvent.FROM_RECHARGE){

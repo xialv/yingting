@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.yitingche.demo.R;
 import com.yitingche.demo.controller.LoginManager;
@@ -19,6 +20,7 @@ public class MenuLoginView extends LinearLayout {
     private Context mContext;
     private View mLoginedView;
     private View mLoginBtn;
+    private TextView mLoginAccount;
     private OnLoginClickListener mLoginClickListener = null;
 
     public MenuLoginView(Context context) {
@@ -42,6 +44,7 @@ public class MenuLoginView extends LinearLayout {
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.menu_login_item, this, true);
         mLoginedView = rootView.findViewById(R.id.menu_login);
         mLoginBtn = rootView.findViewById(R.id.login_btn);
+        mLoginAccount = (TextView) rootView.findViewById(R.id.menu_account_tv);
         if (LoginManager.getInstance().isLogined(mContext)){
             mLoginedView.setVisibility(VISIBLE);
             mLoginBtn.setVisibility(GONE);
@@ -60,9 +63,10 @@ public class MenuLoginView extends LinearLayout {
         });
     }
 
-    public void showLogin(boolean isLogin){
+    public void showLogin(boolean isLogin, String account){
         if (isLogin){
             mLoginBtn.setVisibility(GONE);
+            mLoginAccount.setText(account);
             mLoginedView.setVisibility(VISIBLE);
         } else {
             mLoginedView.setVisibility(GONE);

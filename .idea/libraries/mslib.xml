@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="mslib">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/libs/mslib.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

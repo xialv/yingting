@@ -37,6 +37,13 @@ public class SearchActivity extends Activity implements AdapterView.OnItemClickL
     }
 
     private void initView(){
+        View back = findViewById(R.id.back_icon);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         mSuggestionSearch = SuggestionSearch.newInstance();
         mEditText = (ClearEditText) findViewById(R.id.search_edit_text);
         mEditText.setTextChangeListener(new ClearEditText.TextChangeListener() {

@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:paddingLeft="23dp"
     android:paddingRight="23dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <EditText
         android:id="@+id/card_edit_text"

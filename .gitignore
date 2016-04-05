@@ -100,3 +100,12 @@ proguard-rules.pro
 
 ui/project/build.gradle
 ui/.idea/
+=======
+/build
+/local.properties
+/.idea/libraries
+.DS_Store
+.idea/
+app/build/
+.idea/workspace.xml
+/.gradle/
