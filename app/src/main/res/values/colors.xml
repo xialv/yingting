@@ -20,5 +20,8 @@
     <color name="tab_indicator_color">#22ACF4</color>
 
     <color name="listview_bg_color">#f1f1f2</color>
+    <color name="editText">#AAAAAA</color>
+    <color name="blue">#008dff</color>
+    <color name="gray">#bbbbbb</color>
 </resources>
 
