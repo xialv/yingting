@@ -12,12 +12,12 @@
         android:layout_marginRight="15.3dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@color/actionbar_bg_color">
+        android:background="@color/transparent">
         <ImageView
             android:id="@+id/back_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/xml_selector_button_back"/>
+            android:background="@drawable/icon_back"/>
         <com.yitingche.demo.view.ClearEditText
             android:id="@+id/search_edit_text"
             android:layout_width="match_parent"

@@ -83,6 +83,7 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
     private ClearEditText mEditText;
     private boolean mMenuOpen = false;
     private ParkInfoView mParkInfo;
+    private Park mCurrentPark;
 
     /**
      * MapView 是地图主控件
@@ -284,7 +285,7 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                 mBaiduMap.setOnMarkerClickListener(overlay);
                 overlay.setParkList(event.result);
                 overlay.addToMap();
-                overlay.zoomToSpan();
+//                overlay.zoomToSpan();
 
             }
         }
@@ -306,6 +307,7 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
         if(requestCode == 1000){
             if(resultCode == 0){
                 if (data != null){
+                    mCurrentPark = null;
                     Double lat = data.getDoubleExtra("lat", 0);
                     Double lng = data.getDoubleExtra("lng", 0);
                     if(lat > 0 && lng > 0) {
@@ -317,14 +319,21 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                                 .latitude(lat)
                                 .longitude(lng).build();
                         mBaiduMap.setMyLocationData(locData);
-                        //准备 marker 的图片
-                        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.drawable.icon_location);
-                        //准备 marker option 添加 marker 使用
-                        MarkerOptions markerOptions = new MarkerOptions().icon(bitmap).position(new LatLng(lat, lng));
-                        //获取添加的 marker 这样便于后续的操作
-                        Marker marker = (Marker) mBaiduMap.addOverlay(markerOptions);
+                        mBaiduMap.clear();
+//                        //准备 marker 的图片
+//                        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.drawable.icon_location);
+//                        //准备 marker option 添加 marker 使用
+//                        MarkerOptions markerOptions = new MarkerOptions().icon(bitmap).position(new LatLng(lat, lng));
+//                        //获取添加的 marker 这样便于后续的操作
+//                        Marker marker = (Marker) mBaiduMap.addOverlay(markerOptions);
 
-                        nearbySearch(0, lat, lng);
+                        LatLng ll = new LatLng(lat, lng);
+                        MapStatus.Builder builder = new MapStatus.Builder();
+                        builder.target(ll).zoom(18.0f);
+                        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+
+//                        nearbySearch(0, lat, lng);
+                        getNearbyPark(lat, lng, 10);
                     }
                 }
             }
@@ -344,6 +353,11 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                     initNavi(snode, enode);
                 }
             }
+        }
+
+        if (mCurrentPark != null && mParkInfo != null){
+            mParkInfo.setData(mCurrentPark);
+            mParkInfo.setVisibility(View.VISIBLE);
         }
     }
 
@@ -407,15 +421,15 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                             // 此处设置开发者获取到的方向信息，顺时针0-360
                     .direction(100).latitude(location.getLatitude())
                     .longitude(location.getLongitude()).build();
-            mBaiduMap.setMyLocationData(locData);
             if (isFirstLoc) {
+                mBaiduMap.setMyLocationData(locData);
                 isFirstLoc = false;
                 LatLng ll = new LatLng(location.getLatitude(),
                         location.getLongitude());
                 MapStatus.Builder builder = new MapStatus.Builder();
                 builder.target(ll).zoom(18.0f);
                 mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
-                nearbySearch(0, location.getLatitude(), location.getLongitude());
+//                nearbySearch(0, location.getLatitude(), location.getLongitude());
                 getNearbyPark(location.getLatitude(), location.getLongitude(), 10);
 
             }
@@ -558,9 +572,11 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
             super.onPoiClick(index);
             Park park = getParkInfo(index);
             if (park != null) {
+                mCurrentPark = park;
                 mParkInfo.setData(park);
                 mParkInfo.setVisibility(View.VISIBLE);
             } else {
+                mCurrentPark = null;
                 mParkInfo.setVisibility(View.GONE);
             }
             if (BaiduNaviManager.isNaviInited()) {
@@ -730,13 +746,19 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
         }
     }
 
-    private void getNearbyPark(Double lat, Double lng, int max){
+    private void getNearbyPark(final Double lat, final Double lng, int max){
         HttpRequestInterface.getNearbyPark(this, String.valueOf(lat), String.valueOf(lng), max, new InternetClient.NetworkCallback<String>() {
             @Override
             public void onSuccess(RequestBase<String> stringRequestBase, String s) {
                 if (!TextUtils.isEmpty(s)){
                     Gson gson = new Gson();
-                    s = "{\"park\":[{\"addr\":\"北京市海淀区\",\"code\":\"park1\",\"coordinateX\":\"40.033197\",\"coordinateY\":\"116.341745\",\"createTime\":\"2016-02-27T17:38:01+08:00\",\"freeSeatNum\":\"30\",\"id\":\"1\",\"name\":\"摩尔停车场\",\"seatNum\":\"500\",\"updateTime\":\"2016-02-27T17:38:06+08:00\"},{\"addr\":\"北京市朝阳区\",\"code\":\"park2\",\"coordinateX\":\"40.033100\",\"coordinateY\":\"116.341740\",\"createTime\":\"2016-02-18T19:38:06+08:00\",\"freeSeatNum\":\"10\",\"id\":\"2\",\"name\":\"福成停车场\",\"seatNum\":\"200\",\"updateTime\":\"2016-02-20T19:38:09+08:00\"}]}";
+                    String lat1 = String.valueOf(lat + 0.001);
+                    String lng1 = String.valueOf(lng);
+                    String lat2 = String.valueOf(lat - 0.001);
+                    String lng2 = String.valueOf(lng + 0.001);
+                    //test data
+                    s = "{\"park\":[{\"addr\":\"北京市海淀区\",\"code\":\"park1\",\"coordinateX\":\"" + lat1 + "\",\"coordinateY\":\""+ lng1 + "\",\"createTime\":\"2016-02-27T17:38:01+08:00\",\"freeSeatNum\":\"30\",\"id\":\"1\",\"name\":\"摩尔停车场\",\"seatNum\":\"500\",\"updateTime\":\"2016-02-27T17:38:06+08:00\"},{\"addr\":\"北京市朝阳区\",\"code\":\"park2\",\"coordinateX\":\""
+                    + lat2 + "\",\"coordinateY\":\""+ lng2 + "\",\"createTime\":\"2016-02-18T19:38:06+08:00\",\"freeSeatNum\":\"10\",\"id\":\"2\",\"name\":\"福成停车场\",\"seatNum\":\"200\",\"updateTime\":\"2016-02-20T19:38:09+08:00\"}]}";
                     ParkResponse response = gson.fromJson(s, ParkResponse.class);
                     ParkEvent event = new ParkEvent();
                     event.result = response.park;
@@ -750,12 +772,10 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                 if (networkResponse !=null){
 
                 }
-                Gson gson = new Gson();
-                String s = "{\"park\":[{\"addr\":\"北京市海淀区\",\"code\":\"park1\",\"coordinateX\":\"40.033197\",\"coordinateY\":\"116.341745\",\"createTime\":\"2016-02-27T17:38:01+08:00\",\"freeSeatNum\":\"30\",\"id\":\"1\",\"name\":\"摩尔停车场\",\"seatNum\":\"500\",\"updateTime\":\"2016-02-27T17:38:06+08:00\"},{\"addr\":\"北京市朝阳区\",\"code\":\"park2\",\"coordinateX\":\"40.033100\",\"coordinateY\":\"116.341740\",\"createTime\":\"2016-02-18T19:38:06+08:00\",\"freeSeatNum\":\"10\",\"id\":\"2\",\"name\":\"福成停车场\",\"seatNum\":\"200\",\"updateTime\":\"2016-02-20T19:38:09+08:00\"}]}";
-                ParkResponse response = gson.fromJson(s, ParkResponse.class);
+
                 ParkEvent event = new ParkEvent();
-                event.result = response.park;
-                event.state = 1;
+                event.result = null;
+                event.state = 0;
                 EventBus.getDefault().postSticky(event);
             }
         });
