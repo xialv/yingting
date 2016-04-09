@@ -43,7 +43,7 @@
         </service>
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="74miyRO7qZbzKOKC7yzKeQU2" />
+            android:value="6O6qeBNxotRR8ScHGbIT00COiR3yw4ic" />
         <activity
             android:name=".activity.FirstLoading"
             android:theme="@style/ActivityNoTitleTheme">
