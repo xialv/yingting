@@ -9,13 +9,6 @@
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_util_v3_7_1-0dd32d73677cb8f763b87fb022ecf3b7136c17df.jar" />
     </item>
     <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/org.apache.http.legacy.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="5320fd78dd7f154e586970d4f02befc9b58432aa">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/org.apache.http.legacy-0f0a9b8f4f479e2b86f327463fd070a3eb0a85db.jar" />
-    </item>
-    <item
         jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_map_v3_7_1.jar"
         jumboMode="false"
         revision="23.0.1"
@@ -28,90 +21,118 @@
         revision="20.0.0"
         sha1="caf6827e7082b18e043fa82703ef84b7ccf8f3db">
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/BaiduNaviSDK_3.0.0-36be46559e715a93ac6706e41a0502bd68ed784e.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/lite-http-2.3.1.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="3915e81204e98abdadcdbfc7a654865c26a49d9c">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/lite-http-2.3.1-b8ec8bb1124a9a44c9d116e6b5308bac6c057191.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_util_v3_7_1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="9ec067777962d6ad4b7d4c0e1aff93e83180d207">
-        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_util_v3_7_1-0dd32d73677cb8f763b87fb022ecf3b7136c17df.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/baidumapapi_util_v3_7_1.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="9ec067777962d6ad4b7d4c0e1aff93e83180d207">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/baidumapapi_util_v3_7_1-c20071982b5bc053d1befdc7327c2caa703b91d1.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_search_v3_7_1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="682cacce5564412cda8c29bf0e405c474e773379">
-        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_search_v3_7_1-6f07936cb7e1c81af845516e8baf2d638780f45f.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/yitingche2/app/libs/locSDK_6.13.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="2cdb37444b41b42e1ce5a8a27e5d3c22e1c57479">
-        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/locSDK_6.13-e329bd943ef4e11b3222b00b93b96cd6237dd344.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/baidumapapi_search_v3_7_1.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="682cacce5564412cda8c29bf0e405c474e773379">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/baidumapapi_search_v3_7_1-f03ae0a524d24c6965da0f226c8fec8cbb157f69.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_map_v3_7_1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="29595e6b2f19f7a79cefe7269d1662333feeab45">
-        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_map_v3_7_1-8d0cc6bead35da15d9b4e11f6f59a1f8f66afb9c.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_util_v3_7_1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="9ec067777962d6ad4b7d4c0e1aff93e83180d207">
-        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_util_v3_7_1-0dd32d73677cb8f763b87fb022ecf3b7136c17df.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/baidumapapi_base_v3_7_1.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="977a8dfd855077c6bfcfb44adce39927e0397e66">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/baidumapapi_base_v3_7_1-426f45dd4e6850c76424c9ea57fb7193bc496570.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/yitingche2/app/libs/org.apache.http.legacy.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="5320fd78dd7f154e586970d4f02befc9b58432aa">
-        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy-c22e242fce92183a5fe074c95586a763e04c8692.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/yitingche2/app/libs/locSDK_6.13.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="2cdb37444b41b42e1ce5a8a27e5d3c22e1c57479">
-        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/locSDK_6.13-e329bd943ef4e11b3222b00b93b96cd6237dd344.jar" />
     </item>
     <item
         jar="/Users/lvxia/work/ytc/yingting/app/libs/gson-2.4.jar"
         jumboMode="false"
-        revision="20.0.0"
+        revision="23.0.1"
         sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/gson-2.4-11442b5f5e282a7b78e7cf5d7ab8c4315aae76f7.jar" />
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/gson-2.4-11442b5f5e282a7b78e7cf5d7ab8c4315aae76f7.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/lite-http-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3915e81204e98abdadcdbfc7a654865c26a49d9c">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/lite-http-2.3.1-b8ec8bb1124a9a44c9d116e6b5308bac6c057191.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_util_v3_7_1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9ec067777962d6ad4b7d4c0e1aff93e83180d207">
+        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_util_v3_7_1-0dd32d73677cb8f763b87fb022ecf3b7136c17df.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/build/intermediates/exploded-aar/yingting.lib/pingpp_one/unspecified/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="fddfc292ff4ea63b546ec71999ebdf26bba16f79">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/classes-0c6b0613c81fa214d6fc4f4c1b9d49c4d7b8ccfe.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/build/intermediates/exploded-aar/yingting.lib/pingpp/unspecified/libs/libammsdk.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="47f4993168154fa73377d7470b9f6887d48a8023">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/libammsdk-2b4243f62c7ebc3b09ae596067a39d06cf059b0a.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_search_v3_7_1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="682cacce5564412cda8c29bf0e405c474e773379">
+        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_search_v3_7_1-6f07936cb7e1c81af845516e8baf2d638780f45f.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/EventBus.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="131b3ac0c17ab3df38957bbd99ead5e69e81d25b">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/EventBus-2af7daea14556c46ee89e252ca6cba4528570477.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/yitingche2/app/libs/locSDK_6.13.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="2cdb37444b41b42e1ce5a8a27e5d3c22e1c57479">
+        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/locSDK_6.13-e329bd943ef4e11b3222b00b93b96cd6237dd344.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/okhttp-2.0.0-RC1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="dbc90f5bfca84bb3cde88341949e734ce36e6f67">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/okhttp-2.0.0-RC1-485521b198254bd86c9846c57aa6fdef749d1e3b.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/org.apache.http.legacy.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5320fd78dd7f154e586970d4f02befc9b58432aa">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy-0f0a9b8f4f479e2b86f327463fd070a3eb0a85db.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_map_v3_7_1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="29595e6b2f19f7a79cefe7269d1662333feeab45">
+        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_map_v3_7_1-8d0cc6bead35da15d9b4e11f6f59a1f8f66afb9c.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_util_v3_7_1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9ec067777962d6ad4b7d4c0e1aff93e83180d207">
+        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_util_v3_7_1-0dd32d73677cb8f763b87fb022ecf3b7136c17df.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/yitingche2/app/libs/org.apache.http.legacy.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5320fd78dd7f154e586970d4f02befc9b58432aa">
+        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy-c22e242fce92183a5fe074c95586a763e04c8692.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/yitingche2/app/libs/locSDK_6.13.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2cdb37444b41b42e1ce5a8a27e5d3c22e1c57479">
+        <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/locSDK_6.13-e329bd943ef4e11b3222b00b93b96cd6237dd344.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/locSDK_6.13.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2cdb37444b41b42e1ce5a8a27e5d3c22e1c57479">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/locSDK_6.13-96e6abd13aeddc5e08223ebc23f866fd48e11300.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/android-support-v13.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="7977a413c0e9a0539cddaca1e4e3f85198c0f8ef">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/android-support-v13-7e8df35590386735292863e1881343d36ff71211.jar" />
     </item>
     <item
         jar="/Users/lvxia/work/yitingche2/app/libs/android-support-v13.jar"
@@ -128,11 +149,11 @@
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/BaiduNaviSDK_3.0.0-36be46559e715a93ac6706e41a0502bd68ed784e.jar" />
     </item>
     <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/locSDK_6.13.jar"
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/BaiduNaviSDK_3.0.0.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="2cdb37444b41b42e1ce5a8a27e5d3c22e1c57479">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/locSDK_6.13-96e6abd13aeddc5e08223ebc23f866fd48e11300.jar" />
+        revision="23.0.1"
+        sha1="caf6827e7082b18e043fa82703ef84b7ccf8f3db">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/BaiduNaviSDK_3.0.0-983c0ed5fc6cb5239d64d5f130c07a2538001cd1.jar" />
     </item>
     <item
         jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_search_v3_7_1.jar"
@@ -142,6 +163,20 @@
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_search_v3_7_1-6f07936cb7e1c81af845516e8baf2d638780f45f.jar" />
     </item>
     <item
+        jar="/Users/lvxia/work/ytc/yingting/app/build/intermediates/exploded-aar/yingting.lib/pingpp/unspecified/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9bd8a9d0ff28d2ff8bcf3b8c58cc4a1203189549">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/classes-5ceaf392aa7362374446d9aa2d6a2a06c8947856.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/build/intermediates/exploded-aar/yingting.lib/pingpp/unspecified/libs/alipaySingle-20160111.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0c92c4d11a49f3595cf2b4d0020c83336ae1e23a">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/alipaySingle-20160111-79a154b3207a7063633e94c2eadc9714a16adc24.jar" />
+    </item>
+    <item
         jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_map_v3_7_1.jar"
         jumboMode="false"
         revision="20.0.0"
@@ -149,11 +184,11 @@
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_map_v3_7_1-8d0cc6bead35da15d9b4e11f6f59a1f8f66afb9c.jar" />
     </item>
     <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/EventBus.jar"
+        jar="/Users/lvxia/work/ytc/yingting/app/build/intermediates/exploded-aar/yingting.lib/pingpp_one/unspecified/libs/libone-2.1.0.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="131b3ac0c17ab3df38957bbd99ead5e69e81d25b">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/EventBus-2af7daea14556c46ee89e252ca6cba4528570477.jar" />
+        revision="23.0.1"
+        sha1="ed30b839982fa079002e47350bdaf71cc23e549f">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/libone-2.1.0-c7ce7e0af7513680bec63ab720b46465a2b7a6ac.jar" />
     </item>
     <item
         jar="/Users/lvxia/work/yitingche2/app/libs/android-support-v13.jar"
@@ -168,13 +203,6 @@
         revision="20.0.0"
         sha1="5320fd78dd7f154e586970d4f02befc9b58432aa">
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/org.apache.http.legacy-c22e242fce92183a5fe074c95586a763e04c8692.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/mslib.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="a812d587597025668e379f6e641a29b7f9cdb7fc">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/mslib-1bf384417cf103fdfbb0a457cf6518f672a011a3.jar" />
     </item>
     <item
         jar="/Users/lvxia/work/yitingche2/app/libs/mslib.jar"
@@ -191,18 +219,32 @@
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_base_v3_7_1-f28a8f7873dec5251fa212278a18836bab64e6a9.jar" />
     </item>
     <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/android-support-v13.jar"
+        jar="/Users/lvxia/work/ytc/yingting/app/build/intermediates/exploded-aar/yingting.lib/pingpp/unspecified/libs/UPPayAssistEx.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="7977a413c0e9a0539cddaca1e4e3f85198c0f8ef">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/android-support-v13-7e8df35590386735292863e1881343d36ff71211.jar" />
+        revision="23.0.1"
+        sha1="8efbcbe3b773b9d75050c5ba6dec8d21ca30b1e1">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/UPPayAssistEx-f113cd32742229e8953f2687ab9d664852064442.jar" />
     </item>
     <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/baidumapapi_map_v3_7_1.jar"
+        jar="/Users/lvxia/work/ytc/yingting/app/build/intermediates/exploded-aar/yingting.lib/pingpp/unspecified/libs/UPPayPluginExPro.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="29595e6b2f19f7a79cefe7269d1662333feeab45">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/baidumapapi_map_v3_7_1-805a9ab7b8e4fb353fb64ef428f983b242a4c782.jar" />
+        revision="23.0.1"
+        sha1="c9de05e5c153c59c86720e52ebef0a62d428fcea">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/UPPayPluginExPro-96f356b7c45f79c38e15890f6b84679e1803cc83.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/mslib.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a812d587597025668e379f6e641a29b7f9cdb7fc">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/mslib-1bf384417cf103fdfbb0a457cf6518f672a011a3.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/baidumapapi_search_v3_7_1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="682cacce5564412cda8c29bf0e405c474e773379">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/baidumapapi_search_v3_7_1-f03ae0a524d24c6965da0f226c8fec8cbb157f69.jar" />
     </item>
     <item
         jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_base_v3_7_1.jar"
@@ -233,6 +275,13 @@
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/BaiduNaviSDK_3.0.0-36be46559e715a93ac6706e41a0502bd68ed784e.jar" />
     </item>
     <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/okio-1.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="02534c458682c73f5b9871131ab3098d3f987ca3">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/okio-1.0.0-b1a254efe4a8f33d3be075f8ea80e19d64cd1b97.jar" />
+    </item>
+    <item
         jar="/Users/lvxia/work/yitingche2/app/libs/lite-http-2.3.1.jar"
         jumboMode="false"
         revision="20.0.0"
@@ -254,6 +303,13 @@
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/locSDK_6.13-e329bd943ef4e11b3222b00b93b96cd6237dd344.jar" />
     </item>
     <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/baidumapapi_base_v3_7_1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="977a8dfd855077c6bfcfb44adce39927e0397e66">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/baidumapapi_base_v3_7_1-426f45dd4e6850c76424c9ea57fb7193bc496570.jar" />
+    </item>
+    <item
         jar="/Users/lvxia/work/yitingche2/app/libs/baidumapapi_base_v3_7_1.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -261,18 +317,32 @@
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/baidumapapi_base_v3_7_1-f28a8f7873dec5251fa212278a18836bab64e6a9.jar" />
     </item>
     <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/baidumapapi_util_v3_7_1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9ec067777962d6ad4b7d4c0e1aff93e83180d207">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/baidumapapi_util_v3_7_1-c20071982b5bc053d1befdc7327c2caa703b91d1.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/build/intermediates/exploded-aar/yingting.lib/pingpp/unspecified/libs/libpingpp-2.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="820c938ff268c6db7a850b35951e4f4d6d93ce75">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/libpingpp-2.1.0-d812e68e174ad2df7b53f921243c5785c2bbff5b.jar" />
+    </item>
+    <item
+        jar="/Users/lvxia/work/ytc/yingting/app/libs/baidumapapi_map_v3_7_1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="29595e6b2f19f7a79cefe7269d1662333feeab45">
+        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/debug/baidumapapi_map_v3_7_1-805a9ab7b8e4fb353fb64ef428f983b242a4c782.jar" />
+    </item>
+    <item
         jar="/Users/lvxia/work/yitingche2/app/libs/gson-2.4.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
         <dex dex="/Users/lvxia/work/yitingche2/app/build/intermediates/pre-dexed/debug/gson-2.4-34118f9bb5e7b6f829141fd2add29cf62135de8b.jar" />
-    </item>
-    <item
-        jar="/Users/lvxia/work/ytc/yingting/app/libs/BaiduNaviSDK_3.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="caf6827e7082b18e043fa82703ef84b7ccf8f3db">
-        <dex dex="/Users/lvxia/work/ytc/yingting/app/build/intermediates/pre-dexed/release/BaiduNaviSDK_3.0.0-983c0ed5fc6cb5239d64d5f130c07a2538001cd1.jar" />
     </item>
 
 </items>

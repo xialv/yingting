@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
 
     defaultConfig {
         applicationId "com.yitingche.demo"
@@ -20,7 +20,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', exclude: 'org.apache.http.legacy.jar', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], exclude: 'org.apache.http.legacy.jar', dir: 'libs')
     compile files('libs/locSDK_6.13.jar')
     compile files('libs/BaiduNaviSDK_3.0.0.jar')
     compile files('libs/lite-http-2.3.1.jar')
@@ -29,4 +29,8 @@ dependencies {
     compile files('libs/mslib.jar')
     compile files('libs/gson-2.4.jar')
     compile files('libs/EventBus.jar')
+    compile files('libs/okhttp-2.0.0-RC1.jar')
+    compile files('libs/okio-1.0.0.jar')
+    compile project(':lib:pingpp')
+    compile project(':lib:pingpp_one')
 }

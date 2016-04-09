@@ -699,7 +699,7 @@ public class MainActivity extends Activity implements OnGetPoiSearchResultListen
                         intent = new Intent(this, DealActivity.class);
                         break;
                     case MenuInfo.TYPE_RECHARGE:
-                        intent = new Intent(this, RechargeActivity.class);
+                        intent = new Intent(this,  PayActivity.class);
                         break;
                 }
                 if (intent != null)
